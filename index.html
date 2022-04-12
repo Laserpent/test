@@ -26,6 +26,7 @@
         .content{
             position: relative;
             width: 100%;
+            z-index: 1;
         }
         .text {
             position: absolute;
@@ -35,6 +36,7 @@
             right: 0;
             height: 100%;
             width: 100%;
+            z-index: 1;
         }
         .name{
             position: absolute;
@@ -45,7 +47,7 @@
         }
         .idnum{
             position: absolute;
-            top: 10%;
+            top: 10.2%;
             left: 59.5%;
             font-size: 5vw;
             color: #fff;
@@ -56,7 +58,6 @@
             left: 31%;
             font-size: 4vw;
             color: #000;
-            user-select:none;
             font-family: Arial;
             font-weight:800;
         }
@@ -66,20 +67,21 @@
             left: 13.6%;
             font-size: 3vw;
             color: #fff;
-            user-select:none;
         }
     </style>
 </head>
 
 <body>
     <header class="header">
-        <img src="./empty/head.png"/>
+        <img src="./empty/head.png" />
     </header>
     <div class="content">
-        <img src="./empty/content.png" alt="" />
+        <img src="./empty/content.png" />
         <div class="text">
-            <span contenteditable="true" class="name">瑞</span>
             <span contenteditable="true" class="idnum">2371</span>
+            <span contenteditable="true" class="name">瑞</span>
+        </div>
+        <div class="sub-text">
             <span id="date"></span>
             <span id="na"></span>
         </div>
