@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="#ffffff">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1" />
+    <title>test</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: "PingFang SC", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Heiti SC", STXihei, "Microsoft YaHei", SimHei, "WenQuanYi Micro Hei";
+        }
+        img{
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        .header{
+            position: fixed;
+            display: flex;
+            width: 100%;
+            z-index:999;
+        }
+        .content{
+            position: relative;
+            width: 100%;
+        }
+        .text {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+        }
+        .name{
+            position: absolute;
+            top: 10.2%;
+            left: 10.5%;
+            font-size: 5.3vw;
+            color: #fff;
+        }
+        .idnum{
+            position: absolute;
+            top: 10.2%;
+            left: 59.5%;
+            font-size: 5vw;
+            color: #fff;
+        }
+        #date{
+            position: absolute;
+            top: 16%;
+            left: 31%;
+            font-size: 4vw;
+            color: #000;
+            user-select:none;
+            font-family: Arial;
+            font-weight:800;
+        }
+        #na{
+            position: absolute;
+            top: 63.5%;
+            left: 13.6%;
+            font-size: 3vw;
+            color: #fff;
+            user-select:none;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <img src="./empty/head.png"/>
+    </header>
+    <div class="content">
+        <img src="./empty/content.png" alt="" />
+        <div class="text">
+            <span contenteditable="true" class="name">瑞</span>
+            <span contenteditable="true" class="idnum">2371</span>
+            <span id="date"></span>
+            <span id="na"></span>
+        </div>
+    </div>
+</body>
+
+<script>
+    function showDate(){
+        var d = new Date();
+        var month = ((d.getMonth() + 1) < 10) ? ("0" + (d.getMonth() + 1)) : (d.getMonth() + 1);
+        var date = (d.getDate() < 10) ? ("0" + d.getDate()) : d.getDate();
+        var hour = (d.getHours() < 10) ? ("0" + d.getHours()) : d.getHours();
+        var min = (d.getMinutes() < 10) ? ("0" + d.getMinutes()) : d.getMinutes();
+        var sec = (d.getSeconds() < 10) ? ("0" + d.getSeconds()) : d.getSeconds();
+        document.getElementById("date").innerHTML = (d.getFullYear() + "-" + month + "-" + date + " " + hour + ":" + min + ":" + sec);
+    }
+    function showNa(){
+        var d = new Date();
+        d.setTime(d.getTime()-24*60*60*1000-17*60*1000);
+        var month = ((d.getMonth() + 1) < 10) ? ("0" + (d.getMonth() + 1)) : (d.getMonth() + 1);
+        var date = (d.getDate() < 10) ? ("0" + d.getDate()) : d.getDate();
+        var hour = (d.getHours() < 10) ? ("0" + d.getHours()) : d.getHours();
+        var min = (d.getMinutes() < 10) ? ("0" + d.getMinutes()) : d.getMinutes();
+        var sec = (d.getSeconds() < 10) ? ("0" + d.getSeconds()) : d.getSeconds();
+        document.getElementById("na").innerHTML = (d.getFullYear() + "-" + month + "-" + date + " " + 12 + ":" + min);
+    }
+    setInterval(showNa)
+    setInterval(showDate, 1000)
+</script>
