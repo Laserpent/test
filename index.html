@@ -53,16 +53,24 @@
             font-size: 5vw;
             color: #fff;
         }
-        #date{
+        .date{
             position: absolute;
             top: 16%;
             left: 31%;
+            font-size: 0vw;
+        }
+        #before_sec{
             font-size: 4vw;
             color: #000;
             font-family: Arial;
+        }
+        #sec{
+            font-size: 5vw;
+            color: #0098FF;
+            font-family: Arial;
             font-weight: 800;
         }
-        #na{
+        #test{
             position: absolute;
             top: 63.5%;
             left: 13.6%;
@@ -83,8 +91,11 @@
             <span contenteditable="true" class="name">瑞</span>
         </div>
         <div class="sub-text">
-            <span id="date"></span>
-            <span id="na"></span>
+            <div class="date">
+                <spen id="before_sec"></spen>
+                <spen id="sec"></spen>
+            </span>
+            <span id="test"></span>
         </div>
     </div>
 </body>
@@ -97,7 +108,16 @@
         var hour = (d.getHours() < 10) ? ("0" + d.getHours()) : d.getHours();
         var min = (d.getMinutes() < 10) ? ("0" + d.getMinutes()) : d.getMinutes();
         var sec = (d.getSeconds() < 10) ? ("0" + d.getSeconds()) : d.getSeconds();
-        document.getElementById("date").innerHTML = (d.getFullYear() + "-" + month + "-" + date + " " + hour + ":" + min + ":" + sec);
+        document.getElementById("before_sec").innerHTML = (d.getFullYear() + "-" + month + "-" + date + " " + hour + ":" + min + ":");
+    }
+    function showSec(){
+        var d = new Date();
+        var month = ((d.getMonth() + 1) < 10) ? ("0" + (d.getMonth() + 1)) : (d.getMonth() + 1);
+        var date = (d.getDate() < 10) ? ("0" + d.getDate()) : d.getDate();
+        var hour = (d.getHours() < 10) ? ("0" + d.getHours()) : d.getHours();
+        var min = (d.getMinutes() < 10) ? ("0" + d.getMinutes()) : d.getMinutes();
+        var sec = (d.getSeconds() < 10) ? ("0" + d.getSeconds()) : d.getSeconds();
+        document.getElementById("sec").innerHTML = (sec);
     }
     function showNa(){
         var d = new Date();
@@ -107,8 +127,9 @@
         var hour = (d.getHours() < 10) ? ("0" + d.getHours()) : d.getHours();
         var min = (date < 7) ? (date + 53) : (date * 2 - 13);
         min = (min < 10) ? ("0" + min) : min;
-        document.getElementById("na").innerHTML = (d.getFullYear() + "-" + month + "-" + date + " " + 12 + ":" + min);
+        document.getElementById("test").innerHTML = (d.getFullYear() + "-" + month + "-" + date + " " + 12 + ":" + min);
     }
     showNa()
     setInterval(showDate, 1000)
+    setInterval(showSec, 1000)
 </script>
