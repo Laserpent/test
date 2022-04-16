@@ -41,14 +41,14 @@
         }
         .name{
             position: absolute;
-            top: 10.2%;
-            left: 10.5%;
+            top: 10%;
+            left: 10.2%;
             font-size: 5.3vw;
             color: #fff;
         }
         .idnum{
             position: absolute;
-            top: 10%;
+            top: 9.8%;
             left: 59.5%;
             font-size: 5vw;
             color: #fff;
@@ -60,12 +60,12 @@
             font-size: 0vw;
         }
         #before_sec{
-            font-size: 4vw;
+            font-size: 3.5vw;
             color: #000;
             font-family: Arial;
         }
         #sec{
-            font-size: 5vw;
+            font-size: 4.5vw;
             color: #0098FF;
             font-family: Arial;
             font-weight: 800;
@@ -94,7 +94,7 @@
             <div class="date">
                 <spen id="before_sec"></spen>
                 <spen id="sec"></spen>
-            </span>
+            </div>
             <span id="test"></span>
         </div>
     </div>
@@ -119,7 +119,7 @@
         var sec = (d.getSeconds() < 10) ? ("0" + d.getSeconds()) : d.getSeconds();
         document.getElementById("sec").innerHTML = (sec);
     }
-    function showNa(){
+    function showTest(){
         var d = new Date();
         d.setTime(d.getTime()-24*60*60*1000-17*60*1000);
         var month = ((d.getMonth() + 1) < 10) ? ("0" + (d.getMonth() + 1)) : (d.getMonth() + 1);
@@ -129,7 +129,7 @@
         min = (min < 10) ? ("0" + min) : min;
         document.getElementById("test").innerHTML = (d.getFullYear() + "-" + month + "-" + date + " " + 12 + ":" + min);
     }
-    showNa()
+    showTest()
     setInterval(showDate, 1000)
     setInterval(showSec, 1000)
 </script>
