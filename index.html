@@ -3,7 +3,12 @@
  <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="HB Health Code" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <link rel="apple-touch-icon-precomposed" sizes="any" href="empty/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="any"  href="empty/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1" />
     <title>test</title>
     <style>
@@ -13,7 +18,7 @@
             font-family: "PingFang SC", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Heiti SC", STXihei, "Microsoft YaHei", SimHei, "WenQuanYi Micro Hei";
         }
         html,body{
-            background-color: #f4f4f6;
+            background-color: #ffffff;
         }
         img{
             display: block;
@@ -41,15 +46,21 @@
             width: 100%;
             z-index: 2;
         }
-        .cover-b {
+        #cover-b {
             position: absolute;
-            top: 47%;
+            top: 27%;
             bottom: 0;
-            left: 6%;
+            left: 88%;
             right: 0;
             height: 6%;
-            width: 88%;
+            width: 12%;
             z-index: 3;
+        }
+        #cover-g{
+            position: absolute;
+            top: 0%;
+            width: 100%;
+            display: none;
         }
         .name{
             position: absolute;
@@ -98,6 +109,19 @@
             text-align: center;
             user-select: none;
         }
+        #vaccine{
+            position: absolute;
+            top: 61.1%;
+            left: 52%;
+            width: 42.2%;
+            color: #333333;
+            font-family: Arial;
+            font-weight: 300;
+            font-size: 3.2vw;
+            text-align: center;
+            user-select: none;
+            display: none;
+        }
     </style>
 </head>
 
@@ -107,18 +131,20 @@
     </header>
     <div class="content">
         <img src="./empty/content.png" />
+        <img src="./empty/golden.webp" id="cover-g" />
         <div class="cover-a"></div>
-        <div
-        class="cover-b"
+        <div id="cover-b"
+        onclick="casting()"
         ></div>
         <div class="text">
             <span contenteditable="true" class="name">瑞</span>
             <span contenteditable="true" class="idnum">2371</span>
             <div class="date">
-                <span id="before-sec"></span>
-                <span id="sec"></span>
+                <span id="before-sec">2021-03-15 15:16:</span>
+                <span id="sec">27</span>
             </div>
-            <span id="test"></span>
+            <span id="test">2020-10-22 07:21</span>
+            <span id="vaccine">2021-12-05 13:21</span>
         </div>
     </div>
 </body>
@@ -155,5 +181,17 @@
     showTest()
     setInterval(showDate, 1000)
     setInterval(showSec, 1000)
+
+    function casting(){
+        var golden = document.getElementById("cover-g");
+        var vaccine = document.getElementById("vaccine");
+        if(golden.style.display == 'block'){
+            golden.style.display = 'none';
+            vaccine.style.display = 'none';
+        }else{
+            golden.style.display = 'block';
+            vaccine.style.display = 'block';
+        }
+    }
 </script>
 </html>
